@@ -1,40 +1,43 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import "./App.css"
 
-export default function App(){
+export default function App() {
 
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState("Pune");
-  const [weatherDescription,setWheatherDescription] = useState("")
+  const [weatherDescription, setWheatherDescription] = useState("")
 
-  async function loadWeatherData(){
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}& appid-f652964084c552e8c0492237a3fabd9c`)
+  async function loadWeatherData() {
 
-    setWeatherData(response.data)
+    try {
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f652964084c552e8c0492237a3fabd9c`)
+
+      setWeatherData(response.data);
+    }catch(e){
+      console.log(e); 
+    }
   }
+  useEffect(() => {
+    loadWeatherData();
+  }, [])
 
-useEffect(() => {
-  loadWeatherData();
-}, [])
+  useEffect(() => {
+    setWheatherDescription(`${weatherData?.weather?.[0]?.main} (${weatherData?.weather?.[0]?.description})`
+  )}, [weatherData])
 
-useEffect(()=>{
-  setWheatherDescription("")
-
- `${weatherData?.weather?.description} ()`
-}, [weatherData])
-
-  return(
+  return (
     <div>
-    <h1>Cloud Clustering</h1>
-    <p>City: {weatherData?.name}</p>
+      <h1>Cloud Clustering</h1>
+      <input type="text" value="search"/>
+      <p>City: {weatherData?.name}</p>
 
-    <p>Temperature:{weatherData?.main?.temp-273}tofixed(2)</p>
+      <p>Temperature:{(weatherData?.main?.temp - 273).toFixed(2)}</p>
 
-    <p>Description: {weatherDescription}
-    </p>
+      <p>Description: {weatherDescription}
+      </p>
 
-    <p>Visibility: {weatherData?.visibility}meter</p>
+      <p>Visibility: {weatherData?.visibility}meter</p>
     </div>
   )
 }
