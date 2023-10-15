@@ -9,7 +9,7 @@ import haze from './../src/haze.jfif'
 export default function App() {
 
   const [weatherData, setWeatherData] = useState({});
-  const [city, setCity] = useState("Pune");
+  const [city, setCity] = useState("City");
   const [weatherDescription, setWheatherDescription] = useState("")
 
   async function loadWeatherData() {
