@@ -23,13 +23,19 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    loadWeatherData();
+  }, [city])
+
+  useEffect(() => {
     setWheatherDescription(`${weatherData?.weather?.[0]?.main} (${weatherData?.weather?.[0]?.description})`
   )}, [weatherData])
 
   return (
     <div>
-      <h1>Cloud Clustering</h1>
-      <input type="text" value="search"/>
+      <h1>Cloud Clustering </h1>
+      <input type="text" value={city} onChange={(e)=>{
+        setCity(e.target.value);
+      }}/>
       <p>City: {weatherData?.name}</p>
 
       <p>Temperature:{(weatherData?.main?.temp - 273).toFixed(2)}</p>
