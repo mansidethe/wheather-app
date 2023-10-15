@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
-}
+body{
+  padding: 0;
+  margin: 0;
+  background: linear-gradient( 
+    to left, #90aff8, #d8eed3, 
+     #d5ecab, #4fe5f3); 
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
   }
+  .cloud-text{
+    text-align: center;
+   font-size: 40px;
+   background: linear-gradient( 
+            to right, #6421f3, #06cd8e, 
+             #c123cf, #12a2ea); 
+        -webkit-text-fill-color: transparent; 
+        -webkit-background-clip: text; 
+  }
+  .search-bar{
+    position: relative;
+    left:585px;
+    height: 30px;
+    width: 310px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 1px black;
+    font-size: 15px;
+    padding-left: 20px;
+  }
+  .cloud-card{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px black;
+    height: 500px;
+    width: 450px;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+  }
+.city-name{
+font-size: 20px;
+text-align: justify;
+padding: 10px;
+margin: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cloud-img{
+ box-shadow: 1px 1px 10px 1px rgb(81, 81, 246);
+  margin-top: 50px;
+  height: 120px;
+  border-radius: 20px;
+}
+.cloud-image{
+  box-shadow: 1px 1px 10px 1px rgb(81, 81, 246);
+  margin-top: 50px;
+  height: 120px;
+  width: 120px;
+  border-radius: 20px;
+}
+.images{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-content: space-around;
 }
